@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>car-view</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Auto vaatamine</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onDelete()" routerLink="/home">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">Nimi:</h1>
+      </ion-col>
+      <ion-col>
+        <h1>{{ car.name }}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">Aasta:</h1>
+      </ion-col>
+      <ion-col>
+        <h1>{{ car.year }}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+         <ion-img [src]="car.imageSource"></ion-img>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+    
 </ion-content>

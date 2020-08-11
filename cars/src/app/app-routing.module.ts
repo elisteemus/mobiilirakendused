@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'view/:car',
+    path: 'view/:id',
     loadChildren: () => import('./car-view/car-view.module').then( m => m.CarViewPageModule)
   },
 ];
