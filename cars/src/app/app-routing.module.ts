@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'view/:car',
+    loadChildren: () => import('./car-view/car-view.module').then( m => m.CarViewPageModule)
+  },
 ];
 
 @NgModule({
