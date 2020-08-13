@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'view/:id',
     loadChildren: () => import('./car-view/car-view.module').then( m => m.CarViewPageModule)
   },
+  {
+    path: 'add',
+    loadChildren: () => import('./car-add/car-add.module').then( m => m.CarAddPageModule)
+  },
 ];
 
 @NgModule({

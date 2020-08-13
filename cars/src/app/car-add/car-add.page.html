@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Auto lisamine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #carAddForm="ngForm" (ngSubmit)="onSubmit(carAddForm)">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Auto</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Mark</ion-label>
+          <ion-input ngModel name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Aasta</ion-label>
+          <ion-input ngModel name="year" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Pilt</ion-label>
+          <ion-input ngModel name="imageSource" required></ion-input>
+        </ion-item>
+        <ion-button color="danger" (click)="onEmpty(carAddForm)">
+          <ion-icon name="close"></ion-icon>
+          Tühjenda</ion-button>
+        <ion-button [disabled]="carAddForm.invalid" routerLink="/home" type="submit">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          Lisa auto</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

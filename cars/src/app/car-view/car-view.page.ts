@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../car.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-car-view',
@@ -16,7 +17,9 @@ export class CarViewPage implements OnInit {
 
   // route constructorisse, et saada ligipääs URL-i omadustele
   constructor(private carService: CarService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private alert: AlertController,
+    private router: Router) { }
 
   ngOnInit() {
     // küsime parameetreid route kaudu ja subscribime, et
@@ -29,10 +32,26 @@ export class CarViewPage implements OnInit {
     // autole anname väärtuse service-i seest
     // võtame kõik autod
     // kandiliste sulgudega ütleme järjekorranumbri
-    this.car = this.carService.cars[this.id];
+    // this.car = this.carService.cars[this.id];
+
+
+    //how to find a element in array by id
+    this.car = this.carService.cars.find(car => car.id == this.id );
   }
 
   onDelete() {
-    this.carService.cars.splice(this.id, 1);
+    this.alert.create({
+      header: 'Oled kindel?',
+      message: 'Kas soovid kustutada?',
+      buttons: [
+        {text: 'Cancel', role: 'cancel'},
+        {text: 'Delete', handler: ()=>{
+          var carId = this.carService.cars.map(car =>car.id).indexOf(this.car.id);
+          this.carService.cars.splice(carId, 1);
+          this.router.navigateByUrl("/home")
+        } }
+      ]
+    }).then(alertEl => {alertEl.present()})
+    
   } 
 }
