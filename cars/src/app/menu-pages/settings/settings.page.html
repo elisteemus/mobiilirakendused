@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Seaded</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>Isiklikud sätted</ion-list-header>
+      <ion-item>
+        <ion-label>Aktiivne</ion-label>
+        <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-radio-group value="grape">
+        <ion-list-header>
+          <ion-label>Fruit</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Apple</ion-label>
+          <ion-radio slot="start" color="success" value="apple"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Grape</ion-label>
+          <ion-radio slot="start" color="tertiary" value="grape"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Cherry</ion-label>
+          <ion-radio slot="start" color="danger" value="cherry"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-list>
+  <ion-button class="save-button" size="large" color="light">Salvesta</ion-button>
+</ion-content>

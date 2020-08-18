@@ -19,6 +19,22 @@ const routes: Routes = [
     path: 'add',
     loadChildren: () => import('./car-add/car-add.module').then( m => m.CarAddPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./menu-pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'business',
+    loadChildren: () => import('./menu-pages/business/business.module').then( m => m.BusinessPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./menu-pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'history',
+    loadChildren: () => import('./menu-pages/history/history.module').then( m => m.HistoryPageModule)
+  },
 ];
 
 @NgModule({
